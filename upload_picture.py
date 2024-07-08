@@ -10,5 +10,5 @@ def download_picture(
     response = requests.get(url)
     response.raise_for_status()
 
-    with open(rf'Comics\{picture_path}', "wb") as file:
+    with open(picture_path, 'wb') as file:
         file.write(response.content)
