@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from upload_picture import download_picture
 
 
-def download_comics():
+def download_comic():
     comics_number = random.randint(1, 2955)
     url = f"https://xkcd.com/{comics_number}/info.0.json"
     response = requests.get(url)
