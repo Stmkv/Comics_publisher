@@ -6,7 +6,6 @@ import os
 from dotenv import load_dotenv
 from upload_picture import download_picture
 
-
 LAST_COMIC = 2955
 
 
@@ -30,13 +29,14 @@ def publish_comic(bot, chat_id, comments, photo_path):
         bot.send_photo(chat_id, photo)
 
 
-
 if __name__ == '__main__':
-    load_dotenv()
-    telegram_bot_token = os.environ["TELEGRAM_BOT_TOKEN"]
-    telegram_chat_id = os.environ["TELEGRAM_CHAT_ID"]
-    bot = telegram.Bot(token=telegram_bot_token)
-    os.makedirs("Comics", exist_ok=True)
-    comics_comment, photo_path = download_comic()
-    publish_comic(bot, telegram_chat_id, comics_comment, photo_path)
-    os.remove(photo_path)
+    try:
+        load_dotenv()
+        telegram_bot_token = os.environ["TELEGRAM_BOT_TOKEN"]
+        telegram_chat_id = os.environ["TELEGRAM_CHAT_ID"]
+        bot = telegram.Bot(token=telegram_bot_token)
+        os.makedirs("Comics", exist_ok=True)
+        comics_comment, photo_path = download_comic()
+        publish_comic(bot, telegram_chat_id, comics_comment, photo_path)
+    finally:
+        os.remove(photo_path)
