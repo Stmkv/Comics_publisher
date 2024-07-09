@@ -4,7 +4,7 @@ import telegram
 import os
 
 from dotenv import load_dotenv
-from upload_picture import download_picture
+from download_picture import download_picture
 
 LAST_COMIC = 2955
 
