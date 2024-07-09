@@ -28,7 +28,7 @@ def publish_comic(bot, chat_id, comments, photo_path):
     bot.send_message(chat_id, comments)
     with open(photo_path, 'rb') as photo:
         bot.send_photo(chat_id, photo)
-    os.remove(photo_path)
+
 
 
 if __name__ == '__main__':
@@ -39,3 +39,4 @@ if __name__ == '__main__':
     os.makedirs("Comics", exist_ok=True)
     comics_comment, photo_path = download_comic()
     publish_comic(bot, telegram_chat_id, comics_comment, photo_path)
+    os.remove(photo_path)
