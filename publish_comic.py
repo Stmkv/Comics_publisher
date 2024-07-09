@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from download_picture import download_picture
 
+
 LAST_COMIC = 2955
 
 
