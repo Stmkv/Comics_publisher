@@ -33,5 +33,6 @@ if __name__ == '__main__':
     telegram_bot_token = os.environ["TELEGRAM_BOT_TOKEN"]
     telegram_chat_id = os.environ["TELEGRAM_CHAT_ID"]
     bot = telegram.Bot(token=telegram_bot_token)
+    os.makedirs("Comics", exist_ok=True)
     comics_comment, photo_path = download_comics()
     public_comics(bot, telegram_chat_id, comics_comment, photo_path)
